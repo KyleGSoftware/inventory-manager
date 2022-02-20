@@ -1,5 +1,5 @@
+import { MongoClient } from 'mongodb'
 require('dotenv').config()
-const { MongoClient } = require("mongodb");
 const insert = require('./insert');
 const search = require('./search');
 
