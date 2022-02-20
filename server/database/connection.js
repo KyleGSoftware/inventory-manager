@@ -1,7 +1,7 @@
 import { MongoClient } from 'mongodb'
-require('dotenv').config()
-const insert = require('./insert');
-const search = require('./search');
+import 'dotenv/config'
+import * as insert from './insert.js';
+import * as search from './search.js';
 
 const connectionString = process.env.ATLAS_URI;
 
