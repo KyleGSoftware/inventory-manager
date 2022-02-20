@@ -3,32 +3,34 @@ const { MongoClient } = require("mongodb");
 
 const connectionString = process.env.ATLAS_URI;
 
-const mongoClient = new MongoClient(connectionString, {
+//initialize mongo client
+const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 
-let dbConnection;
+// initialize connect to mongo db
+async function MongoConnect() {
+  try {
+    await client.connect();
 
-const databaseString = "item-database";
-
-
-
-module.exports = {
-    connectToServer: function (callback) {
-      mongoClient.connect(function (err, db) {
-        if (err || !db) {
-          return callback(err);
-        }
+  } catch (e) {
+    console.error(e);
+  } finally {
+    // await client.close();
+  }
   
-        dbConnection = db.db(databaseString);
-        console.log('Successfully connected to MongoDB.');
-  
-        return callback;
-      });
-    },
-  
-    getDb: function () {
-      return dbConnection;
-    },
-  };
+}
+
+const item = {Name:"Test"};
+
+async function CreateProduct(client, newProduct) {
+  const result = await client.db("pottery").collection("inventory").insertOne(newProduct);
+
+  console.log(`${result.insertedId}`);
+}
+
+
+
+MongoConnect().catch(console.error);
+

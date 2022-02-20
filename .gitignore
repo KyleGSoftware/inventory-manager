@@ -18,6 +18,7 @@
 .env.test.local
 .env.production.local
 /server/.env
+/server/database/.env
 database-blueprint.xlsx
 
 npm-debug.log*
