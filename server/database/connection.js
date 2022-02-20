@@ -10,13 +10,13 @@ const client = new MongoClient(connectionString, {
   useUnifiedTopology: true,
 })
 
-const item = {Name:"Test"};
+const items = [{Name:"Test"}, {Name:"Test2"}];
 
 // initialize connect to mongo db
 async function MongoConnect() {
   try {
     await client.connect();
-    insert.CreateProduct(client, item);
+    insert.CreateMultipleProducts(client, items);
   } catch (e) {
     console.error(e);
   } finally {
@@ -25,13 +25,6 @@ async function MongoConnect() {
   
 }
 
-
-
-async function CreateProduct(client, newProduct) {
-  const result = await client.db("pottery").collection("inventory").insertOne(newProduct);
-
-  console.log(`${result.insertedId}`);
-}
 
 
 
