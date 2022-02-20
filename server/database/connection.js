@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { MongoClient } = require("mongodb");
 const insert = require('./insert');
+const search = require('./search');
 
 const connectionString = process.env.ATLAS_URI;
 
@@ -16,7 +17,6 @@ const items = [{Name:"Test"}, {Name:"Test2"}];
 async function MongoConnect() {
   try {
     await client.connect();
-    insert.CreateMultipleProducts(client, items);
   } catch (e) {
     console.error(e);
   } finally {
