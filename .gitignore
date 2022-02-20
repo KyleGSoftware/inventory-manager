@@ -19,7 +19,9 @@
 .env.production.local
 /server/.env
 /server/database/.env
-database-blueprint.xlsx
+
+# ignore all excel files
+*.xlsx
 
 npm-debug.log*
 yarn-debug.log*
