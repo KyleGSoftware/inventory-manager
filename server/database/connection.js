@@ -1,5 +1,6 @@
 require('dotenv').config()
 const { MongoClient } = require("mongodb");
+const insert = require('./insert');
 
 const connectionString = process.env.ATLAS_URI;
 
@@ -9,11 +10,13 @@ const client = new MongoClient(connectionString, {
   useUnifiedTopology: true,
 })
 
+const item = {Name:"Test"};
+
 // initialize connect to mongo db
 async function MongoConnect() {
   try {
     await client.connect();
-
+    insert.CreateProduct(client, item);
   } catch (e) {
     console.error(e);
   } finally {
@@ -22,7 +25,7 @@ async function MongoConnect() {
   
 }
 
-const item = {Name:"Test"};
+
 
 async function CreateProduct(client, newProduct) {
   const result = await client.db("pottery").collection("inventory").insertOne(newProduct);
