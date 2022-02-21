@@ -10,3 +10,15 @@ export async function updateItemBySKU(client, productSKU, updatedDocument) {
         console.log(`No item found with SKU: ${productSKU}`);
     }
 }
+
+export async function updateAllProducts(client, updatedAttribute) {
+    const result = await client.db("pottery").collection("inventory").updateMany({}, {$set: updatedAttribute });
+
+    if (result) {
+        console.log(`${result.matchedCount} documents matched the query`);
+        console.log(`${result.modifiedCount} were updated as a result.`)
+
+    } else {
+        console.error("An error occurred with updateAllProducts.");
+    }
+}
