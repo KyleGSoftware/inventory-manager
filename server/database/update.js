@@ -22,3 +22,12 @@ export async function updateAllProducts(client, updatedAttribute) {
         console.error("An error occurred with updateAllProducts.");
     }
 }
+
+export async function deleteBySKU(client, productSKU) {
+    const result = await client.db("pottery").collection("inventory").deleteOne({ProductSKU: productSKU});
+
+
+    if (result) {
+        console.log(`${result.deletedCount} Item(s) found with SKU ${productSKU} and deleted`);
+    } 
+}
