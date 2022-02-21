@@ -16,11 +16,13 @@ const port = process.env.PORT || 4000;
 
 // init mongodb module
 const connectionString = process.env.ATLAS_URI;
+// eslint-disable-next-line no-unused-vars
 const mongoClient = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
+// eslint-disable-next-line no-unused-vars
 const result = connection.connectToServer();
 
 

@@ -1,6 +1,9 @@
 import { MongoClient } from 'mongodb'
 import 'dotenv/config'
+
+// eslint-disable-next-line no-unused-vars
 import * as insert from './insert.js';
+// eslint-disable-next-line no-unused-vars
 import * as search from './search.js';
 
 const connectionString = process.env.ATLAS_URI;
@@ -11,7 +14,6 @@ const client = new MongoClient(connectionString, {
   useUnifiedTopology: true,
 })
 
-const items = [{Name:"Test"}, {Name:"Test2"}];
 
 // initialize connect to mongo db
 async function MongoConnect() {

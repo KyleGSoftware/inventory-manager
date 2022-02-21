@@ -1,4 +1,5 @@
 export async function CreateProduct(client, newProduct) {
+    // eslint-disable-next-line no-unused-vars
     const result = await client.db("pottery").collection("inventory").insertOne(newProduct);
 
   }
