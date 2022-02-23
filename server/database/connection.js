@@ -16,7 +16,7 @@ const client = new MongoClient(connectionString, {
 
 
 // initialize connect to mongo db
-async function MongoConnect() {
+export async function MongoConnect() {
   try {
     await client.connect();
   } catch (e) {
@@ -27,8 +27,4 @@ async function MongoConnect() {
   
 }
 
-
-
-
-MongoConnect().catch(console.error);
 

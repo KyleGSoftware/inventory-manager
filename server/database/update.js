@@ -28,6 +28,6 @@ export async function deleteBySKU(client, productSKU) {
 
 
     if (result) {
-        console.log(`${result.deletedCount} Item(s) found with SKU ${productSKU} and deleted`);
+        console.log(`${result.deletedCount} documents(s) found with SKU ${productSKU} and deleted`);
     } 
 }
