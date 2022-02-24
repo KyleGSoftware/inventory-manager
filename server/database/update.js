@@ -6,8 +6,10 @@ export async function updateItemBySKU(client, productSKU, updatedDocument) {
         for (const attribute in updatedDocument) {
             console.log(`updatedDocument.${attribute}: ${updatedDocument[attribute]}`);
         }
+        return(updatedDocument);
     } else {
         console.log(`No item found with SKU: ${productSKU}`);
+        return(null);
     }
 }
 

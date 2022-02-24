@@ -31,4 +31,5 @@ export async function findAllItems(client) {
             console.log(`Product SKU: ${result.ProductSKU}`);
         })
     }
+    return results;
 }
